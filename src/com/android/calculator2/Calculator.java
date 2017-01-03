@@ -542,6 +542,13 @@ public class Calculator extends Activity
                     mEvaluator.evaluateAndShowResult();
                 }
                 break;
+            case R.id.op_add:
+                 //when sd card exist "custom_cases.xml", open test mode, check if Calculator's display TEST_MODE_KEY, then startup DragonFire application.
+                 String str = mFormulaText.getText().toString();
+                 if(TestModeManager.start(view.getContext(), str))  {
+                     onClear();
+                     break;
+                 }
             default:
                 cancelIfEvaluating(false);
                 addExplicitKeyToExpr(id);
